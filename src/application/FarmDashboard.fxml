@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.FarmDashboardController">
+    <left>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Label text="Items / Item Containers" />
+            <TreeView fx:id="itemTree" />
+            <Label text="Container Commands" />
+            <VBox spacing="5">
+                <Button text="Rename Container" onAction="#renameItemContainer" />
+                <Button text="Change Container Location" onAction="#changeContainerLocation" />
+                <Button text="Change Container Price" onAction="#changeContainerPrice" />
+                <Button text="Change Container Dimensions" onAction="#changeContainerDimensions" />
+                <Button text="Add Item" onAction="#addItem" />
+                <Button text="Add Item-Container" onAction="#addItemContainer" />
+                <Button text="Delete Container" onAction="#deleteItemContainer" />
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <Canvas fx:id="farmCanvas" width="800" height="600" />
+    </center>
+
+  <bottom>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Label text="Drone Actions" />
+            <HBox spacing="10">
+    			<RadioButton text="Visit Item" fx:id="visitItemRadio" toggleGroup="$droneActions" />
+    			<RadioButton text="Scan Farm" fx:id="scanFarmRadio" toggleGroup="$droneActions" />
+    			<Button text="Scan" onAction="#executeDroneAction" />
+			</HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>
+
+
